@@ -4,6 +4,12 @@ VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelephoneBook.Shared", "TelephoneBook.Shared\TelephoneBook.Shared.csproj", "{B4DF2D3D-3E3D-42FA-A265-76B9DB7BF313}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelephoneBook.PhoneService", "TelephoneBook.PhoneService\TelephoneBook.PhoneService.csproj", "{7E9D2FD2-3006-4A5D-8BBC-099E3B3643DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9ABD3920-99D3-4FA2-BE99-0A8F8BB6D0AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,9 +20,17 @@ Global
 		{B4DF2D3D-3E3D-42FA-A265-76B9DB7BF313}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4DF2D3D-3E3D-42FA-A265-76B9DB7BF313}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4DF2D3D-3E3D-42FA-A265-76B9DB7BF313}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E9D2FD2-3006-4A5D-8BBC-099E3B3643DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E9D2FD2-3006-4A5D-8BBC-099E3B3643DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E9D2FD2-3006-4A5D-8BBC-099E3B3643DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E9D2FD2-3006-4A5D-8BBC-099E3B3643DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B4DF2D3D-3E3D-42FA-A265-76B9DB7BF313} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{7E9D2FD2-3006-4A5D-8BBC-099E3B3643DC} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {428E8949-F5A4-42BB-81F0-64B0D327FD7A}
