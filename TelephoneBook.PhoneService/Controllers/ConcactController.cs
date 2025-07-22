@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TelephoneBook.Application.Interfaces;
+using TelephoneBook.Application.Models;
 using TelephoneBook.PhoneService.DTOs;
 using TelephoneBook.PhoneService.Services;
 
@@ -33,7 +35,7 @@ namespace TelephoneBook.PhoneService.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] ContactDto contactDto)
+        public async Task<IActionResult> Create([FromBody] ContactAddRequestDto contactDto)
         {
             var contact = await _contactService.CreateAsync(contactDto);
             return Ok(contact);

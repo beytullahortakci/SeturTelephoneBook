@@ -17,4 +17,12 @@
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="9.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DTOs\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TelephoneBook.Application\TelephoneBook.Application.csproj" />
+  </ItemGroup>
+
 </Project>
