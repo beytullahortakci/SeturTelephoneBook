@@ -1,6 +1,5 @@
 using TelephoneBook.Application.Interfaces;
 using TelephoneBook.Application.Services;
-using TelephoneBook.PhoneService.Data;
 using TelephoneBook.PhoneService.Extensions;
 var builder = WebApplication.CreateBuilder(args);
 

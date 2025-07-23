@@ -1,10 +1,6 @@
-﻿using FluentValidation.AspNetCore;
-using FluentValidation;
-using Microsoft.AspNetCore.Http.Features;
-using Microsoft.AspNetCore.Mvc.ApplicationModels;
-using Microsoft.AspNetCore.Mvc;
-using System.Text.Json.Serialization;
-using System.Text.Json;
+﻿using TelephoneBook.Application.Interfaces;
+using TelephoneBook.Application.Services;
+using TelephoneBook.Infrastructure;
 
 namespace TelephoneBook.PhoneService.Extensions
 {
@@ -12,6 +8,8 @@ namespace TelephoneBook.PhoneService.Extensions
     {
         public static void ConfigureServices(this WebApplicationBuilder builder)
         {
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            builder.Services.AddScoped<IContactService,ContactService>();
             builder.Services.AddInfrastructure(builder.Configuration);
         }
     }

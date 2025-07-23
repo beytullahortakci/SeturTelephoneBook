@@ -11,8 +11,6 @@ namespace TelephoneBook.Domain.Common
 
     public interface IBaseEntity
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
-        string Id { get; set; }
+     string Id { get; set; }
     }
 }

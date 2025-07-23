@@ -1,13 +1,16 @@
-﻿using MongoDB.Driver;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using MongoDB.Driver;
 using TelephoneBook.Infrastructure.Contrates;
 using TelephoneBook.Infrastructure.Interfaces;
 
-namespace TelephoneBook.PhoneService.Extensions
+namespace TelephoneBook.Infrastructure
 {
     public static class InfraDependencyInjection
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
+            
             services.AddSingleton<IMongoClient>(sp =>
                 new MongoClient("mongodb://localhost:27017"));
 

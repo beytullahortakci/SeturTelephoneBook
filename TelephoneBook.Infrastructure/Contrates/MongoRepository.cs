@@ -8,8 +8,22 @@ namespace TelephoneBook.Infrastructure.Contrates
     {
         private readonly IMongoCollection<T> _collection;
 
-        public MongoRepository(IMongoDatabase database, string collectionName)
+        public MongoRepository(IMongoDatabase database)
         {
+            var collectionName = typeof(T).Name.ToLower();
+            if (collectionName.EndsWith("ies"))
+            {
+                collectionName = collectionName.Substring(0, collectionName.Length - 3) + "y"; // örnek: categories → category
+            }
+            else if (collectionName.EndsWith("s"))
+            {
+                collectionName = collectionName.Substring(0, collectionName.Length - 1); // örnek: contacts → contact
+            }
+            else if (collectionName.EndsWith("es"))
+            {
+                collectionName = collectionName.Substring(0, collectionName.Length - 2); // örnek: addresses → address
+            }
+
             _collection = database.GetCollection<T>(collectionName);
         }
 

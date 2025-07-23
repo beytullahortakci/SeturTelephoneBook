@@ -6,22 +6,18 @@ using System.Threading.Tasks;
 
 namespace TelephoneBook.Domain.Common
 {
-    public class Result
+
+    public class Result<T>
     {
-        public bool IsSuccess { get; private set; }
-        public string? Error { get; private set; }
-        protected Result(bool isSuccess, string? error)
+        public bool IsSuccess { get; set; }
+        public string? Message { get; set; }
+        public T? Data { get; set; }
+
+        public Result(bool isSuccess, string? message, T? data)
         {
             IsSuccess = isSuccess;
-            Error = error;
+            Message = message;
+            Data = data;
         }
-        public static Result Success() => new Result(true, string.Empty);
-        public static Result Failure(string? error) => new Result(false, error);
-    }
-
-
-    public class Result<T>(bool isSuccess, string? error, T? data) : Result(isSuccess, error)
-    {
-        private T? Data { get; set; } = data;
     }
 }
