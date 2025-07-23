@@ -10,7 +10,7 @@ Bu proje, kişi ve iletişim bilgilerini yöneten, ayrıca konuma göre raporlar
 - MongoDB
 - RabbitMq (Message Queue)
 - EF Core / MongoDB driver
-- xUnit ve Moq (Unit Test)
+- nUnit ve Moq (Unit Test)
 
 
 ## Servisler
