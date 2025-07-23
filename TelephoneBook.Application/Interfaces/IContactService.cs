@@ -8,7 +8,7 @@ namespace TelephoneBook.Application.Interfaces
     {
         Task<Result<List<Contact>>> GetAllAsync();
         Task<Result<Contact?>> GetByIdAsync(string id);
-        Task<Result<Contact>> CreateAsync(ContactAddRequestDto dto);
+        Task<Result<Contact?>> CreateAsync(ContactAddRequestDto dto);
         Task<Result<bool>> DeleteAsync(string id);
     }
 }

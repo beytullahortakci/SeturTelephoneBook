@@ -9,24 +9,19 @@ namespace TelephoneBook.Domain.Common
     public class Result
     {
         public bool IsSuccess { get; private set; }
-        public string Error { get; private set; }
-        protected Result(bool isSuccess, string error)
+        public string? Error { get; private set; }
+        protected Result(bool isSuccess, string? error)
         {
             IsSuccess = isSuccess;
             Error = error;
         }
         public static Result Success() => new Result(true, string.Empty);
-        public static Result Failure(string error) => new Result(false, error);
+        public static Result Failure(string? error) => new Result(false, error);
     }
 
 
-    public class Result<T>:Result
+    public class Result<T>(bool isSuccess, string? error, T? data) : Result(isSuccess, error)
     {
-        protected Result(bool isSuccess, string error, T data) : base(isSuccess, error)
-        {
-            Data = data;
-        }
-
-        private T Data { get; set; }
+        private T? Data { get; set; } = data;
     }
 }

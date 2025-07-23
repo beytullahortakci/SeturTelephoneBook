@@ -1,24 +1,24 @@
 ﻿using FluentValidation;
-using TelephoneBook.PhoneService.DTOs;
+using TelephoneBook.Application.Models;
 
 namespace TelephoneBook.PhoneService.Validators
 {
-    public class ContactValidator : AbstractValidator<ContactDto>
+    public class ContactValidator : AbstractValidator<ContactAddRequestDto>
     {
         public ContactValidator()
         {
-            RuleFor(x => x.FullName).NotEmpty().WithMessage("FullName is required.");
-            RuleFor(x => x.Company).NotEmpty().WithMessage("Company is required.");
-
-            RuleForEach(x => x.ContactInfos).SetValidator(new ContactInfoValidator());
+            RuleFor(x => x.ContactName).NotEmpty().WithMessage("Name is required.");
+            RuleFor(x => x.ContactLastName).NotEmpty().WithMessage("LastName is required.");
+            RuleFor(x => x.ContactCompany).NotEmpty().WithMessage("Company is required.");
         }
     }
 
-    public class ContactInfoValidator : AbstractValidator<ContactInfoDto>
+    public class ContactInfoValidator : AbstractValidator<ContactDetailAddRequestDto>
     {
         public ContactInfoValidator()
         {
-            RuleFor(x => x.Type).NotEmpty().WithMessage("Type is required.");
+            RuleFor(x => x.ContactId).NotEmpty().WithMessage("ContactId is required.");
+            RuleFor(x => x.Type).IsInEnum();
             RuleFor(x => x.Value).NotEmpty().WithMessage("Value is required.");
         }
     }

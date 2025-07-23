@@ -1,10 +1,11 @@
+using TelephoneBook.Application.Interfaces;
+using TelephoneBook.Application.Services;
 using TelephoneBook.PhoneService.Data;
-using TelephoneBook.PhoneService.Services;
+using TelephoneBook.PhoneService.Extensions;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.ConfigureServices();
 builder.Services.AddScoped<IContactService, ContactService>();
 
 builder.Services.AddEndpointsApiExplorer();

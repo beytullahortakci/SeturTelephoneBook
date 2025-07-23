@@ -11,6 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="15.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\TelephoneBook.Domain\TelephoneBook.Domain.csproj" />
     <ProjectReference Include="..\TelephoneBook.Infrastructure\TelephoneBook.Infrastructure.csproj" />
   </ItemGroup>
