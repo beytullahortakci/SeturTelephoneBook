@@ -33,5 +33,4 @@ Bu proje, kişi ve iletişim bilgilerini yöneten, ayrıca konuma göre raporlar
 2. Her servisin kendi klasöründe:
 
 ```bash
-dotnet ef database update
 dotnet run
