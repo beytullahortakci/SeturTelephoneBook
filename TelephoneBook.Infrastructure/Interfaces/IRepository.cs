@@ -17,5 +17,7 @@ namespace TelephoneBook.Infrastructure.Interfaces
         Task AddAsync(T entity);
         Task UpdateAsync(string id, T entity);
         Task DeleteAsync(string id);
+
+        Task<T> FilterFirstAsync(FilterDefinition<T> filter);
     }
 }

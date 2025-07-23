@@ -9,30 +9,29 @@ namespace TelephoneBook.PhoneService.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ContactController : ControllerBase
+    public class ContactDetailController : ControllerBase
     {
-        private readonly IContactService _contactService;
+        private readonly IContactDetailService _contactDetailService;
 
-        public ContactController(IContactService contactService)
+        public ContactDetailController(IContactDetailService contactDetailService)
         {
-            _contactService = contactService;
+            _contactDetailService = contactDetailService;
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(Result<List<Contact>>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(Result<List<ContactDetail>>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetAll()
         {
-            var contacts = await _contactService.GetAllAsync();
+            var contacts = await _contactDetailService.GetAllDetailAsync();
             return Ok(contacts);
         }
 
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(Result<Contact>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(Result<ContactDetail>), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(Result<string>), (int)HttpStatusCode.NotFound)]
-        [ProducesResponseType(typeof(Result<string>), (int)HttpStatusCode.BadRequest)]
-        public async Task<IActionResult> GetById(string id)
+        public async Task<IActionResult> GetDetailByContactIdAsync(string id)
         {
-            var contact = await _contactService.GetByIdAsync(id);
+            var contact = await _contactDetailService.GetDetailByContactIdAsync(id);
             if (contact == null)
                 return NotFound();
 
@@ -40,10 +39,10 @@ namespace TelephoneBook.PhoneService.Controllers
         }
 
         [HttpPost]
-        [ProducesResponseType(typeof(Result<Contact>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(Result<ContactDetail>), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(Result<string>), (int)HttpStatusCode.NotFound)]
         [ProducesResponseType(typeof(Result<string>), (int)HttpStatusCode.BadRequest)]
-        public async Task<IActionResult> Create([FromBody] ContactAddRequestDto contactDto)
+        public async Task<IActionResult> Create([FromBody] ContactDetailAddRequestDto contactDto)
         {
             if (!ModelState.IsValid)
             {
@@ -55,16 +54,16 @@ namespace TelephoneBook.PhoneService.Controllers
                 return BadRequest(new { Errors = errors });
             }
 
-            var contact = await _contactService.CreateAsync(contactDto);
+            var contact = await _contactDetailService.CreateDetailAsync(contactDto);
             return Ok(contact);
         }
 
         [HttpDelete("{id}")]
         [ProducesResponseType(typeof(Result<bool>), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(Result<string>), (int)HttpStatusCode.NotFound)]
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> DeleteWithContactId(string id)
         {
-            var result = await _contactService.DeleteAsync(id);
+            var result = await _contactDetailService.DeleteDetailAsync(id);
             if (!result.IsSuccess)
                 return NotFound();
 

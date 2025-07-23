@@ -18,7 +18,6 @@ namespace TelephoneBook.Application.Services
             _mapper = mapper;
         }
 
-
         public async Task<Result<List<Contact>>> GetAllAsync()
         {
             var data = await _repository.GetAllAsync();

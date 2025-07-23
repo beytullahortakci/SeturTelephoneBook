@@ -10,6 +10,8 @@ namespace TelephoneBook.PhoneService.Extensions
         {
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             builder.Services.AddScoped<IContactService,ContactService>();
+            builder.Services.AddScoped<IContactDetailService, ContactDetailService>();
+
             builder.Services.AddInfrastructure(builder.Configuration);
         }
     }
