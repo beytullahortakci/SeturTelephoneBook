@@ -1,0 +1,6 @@
+@TelephoneBook.ReportService_HostAddress = http://localhost:5062
+
+GET {{TelephoneBook.ReportService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

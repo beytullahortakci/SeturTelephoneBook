@@ -2,7 +2,7 @@
 using TelephoneBook.Application.Services;
 using TelephoneBook.Infrastructure;
 
-namespace TelephoneBook.PhoneService.Extensions
+namespace TelephoneBook.ReportService.Extensions
 {
     public static class WebApplicationBuilderExtensions
     {
@@ -11,7 +11,7 @@ namespace TelephoneBook.PhoneService.Extensions
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             builder.Services.AddScoped<IContactService,ContactService>();
             builder.Services.AddScoped<IContactDetailService, ContactDetailService>();
-            builder.Services.AddScoped<IReportService, ReportService>();
+            builder.Services.AddScoped<IReportService, Application.Services.ReportService>();
 
 
             builder.Services.AddInfrastructure(builder.Configuration);

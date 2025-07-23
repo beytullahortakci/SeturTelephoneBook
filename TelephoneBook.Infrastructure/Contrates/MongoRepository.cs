@@ -47,9 +47,10 @@ namespace TelephoneBook.Infrastructure.Contrates
             return await _collection.Find(filter).FirstOrDefaultAsync();
         }
 
-        public async Task AddAsync(T entity)
+        public async Task<T> AddAsync(T entity)
         {
             await _collection.InsertOneAsync(entity);
+            return entity;
         }
 
         public async Task UpdateAsync(string id, T entity)

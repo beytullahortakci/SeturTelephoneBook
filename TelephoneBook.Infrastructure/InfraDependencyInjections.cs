@@ -12,7 +12,7 @@ namespace TelephoneBook.Infrastructure
         {
             
             services.AddSingleton<IMongoClient>(sp =>
-                new MongoClient("mongodb://localhost:27017"));
+                new MongoClient("mongodb://localhost:27017"));//Appsettingse sonra alınacak
 
             services.AddScoped(sp =>
             {

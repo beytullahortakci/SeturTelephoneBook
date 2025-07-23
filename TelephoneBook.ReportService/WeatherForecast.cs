@@ -1,4 +1,4 @@
-namespace TelephoneBook.PhoneService
+namespace TelephoneBook.ReportService
 {
     public class WeatherForecast
     {
